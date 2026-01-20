@@ -22,9 +22,9 @@ def heartbeat():
 threading.Thread(target=heartbeat, daemon=True).start()
 
 # === CONFIGURATION ===
-SERVICE_ACCOUNT_FILE = "credentials.json"
+SERVICE_ACCOUNT_FILE = "/etc/secrets/credentials.json"
 SHEET_ID = "1Mm-v9NE1rycySiQaKG3Lr2heRcEtlc1XQbuCrOOqT8I"
-LEADS_TAB = "Miltonkeynes-2"
+LEADS_TAB = "Miltonkeynes-1"
 TEMPLATES_TAB = "Templates-Mk"
 
 SMTP_SERVER = "mail.miltonkeynesexpo.com"
