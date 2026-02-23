@@ -29,7 +29,6 @@ TEMPLATES_TAB = "Templates-Mk"
 
 SMTP_SERVER = "mail.miltonkeynesexpo.com"
 SMTP_PORT = 587
-IMAP_SERVER = "mail.miltonkeynesexpo.com"
 SENDER_EMAIL = "mike@miltonkeynesexpo.com"
 SENDER_PASSWORD = "dvnn-&-((jdK"
 
@@ -119,22 +118,6 @@ def mark_unsubscribed_in_sheet(unsubscribed_set):
     except Exception as e:
         print(f"❌ Failed to process unsubscribes: {e}", flush=True)
 
-def save_to_sent_folder(raw_msg):
-    """Save sent email to the correct IMAP Sent folder (INBOX.Sent)"""
-    try:
-        with imaplib.IMAP4_SSL(IMAP_SERVER, 993) as imap:
-            imap.login(SENDER_EMAIL, SENDER_PASSWORD)
-            sent_folder = "INBOX.Sent"
-            imap.append(
-                sent_folder,
-                "",
-                imaplib.Time2Internaldate(time.time()),
-                raw_msg.encode("utf-8")
-            )
-            print(f"📥 Successfully saved email in '{sent_folder}' folder.", flush=True)
-    except Exception as e:
-        pass
-
 def send_email(recipient, first_name, subject, html_body):
     """Send personalized email and save to Sent folder"""
     msg = MIMEMultipart("alternative")
@@ -201,7 +184,6 @@ def send_email(recipient, first_name, subject, html_body):
             server.login(SENDER_EMAIL, SENDER_PASSWORD)
             server.sendmail(SENDER_EMAIL, recipient, raw_msg)
         print(f"✅ Sent: {recipient}", flush=True)
-        save_to_sent_folder(raw_msg)
         return True
     except Exception as e:
         print(f"❌ Failed {recipient}: {e}", flush=True)
