@@ -29,7 +29,7 @@ TEMPLATES_TAB = "Templates-Mk"
 
 SMTP_SERVER = "mail.miltonkeynesexpo.com"
 SMTP_PORT = 587
-SENDER_EMAIL = "mike@miltonkeynesexpo.com"
+SENDER_EMAIL = "mark@miltonkeynesexpo.com"
 SENDER_PASSWORD = "dvnn-&-((jdK"
 
 UNSUBSCRIBE_API = "https://unsubscribe-uofn.onrender.com/get_unsubscribes"
@@ -152,7 +152,7 @@ def send_email(recipient, first_name, subject, html_body):
     <br><br>
     <div style="color:#000;font-weight:bold;">
         Best regards,<br>
-        <strong>Mike Randell</strong><br>
+        <strong>Mark Randell</strong><br>
         Marketing Executive | B2B Growth Expo<br>
         <a href="mailto:mike@miltonkeynesexpo.com" style="color:#000;text-decoration:none;">mike@miltonkeynesexpo.com</a><br>
     </div>"""
